@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
 
+import axios from 'axios'
+
 class Register extends Component {
 
 
     onSubmitClick = () => {
         // Ambil data dari text box
-        let username = this.username.value
-        let email = this.email.value
-        let password = this.sandi.value
+        let _username = this.username.value
+        let _email = this.email.value
+        let _password = this.sandi.value
 
-        console.log(username, email, password)
-
-        // Simpan data di json
+        // POST data
+        axios.post(
+            'http://localhost:2099/users', 
+            {
+                username: _username,
+                email: _email,
+                password: _password
+            }
+        )
 
     }
 

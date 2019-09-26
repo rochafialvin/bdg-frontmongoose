@@ -1,9 +1,11 @@
 {
-    "users": [
-        
-    ],
-
-    "products" : [
-
-    ]
+  "users": [
+    {
+      "username": "fake",
+      "email": "fake@gmail.com",
+      "password": "fakefakefake",
+      "id": 1
+    }
+  ],
+  "products": []
 }
