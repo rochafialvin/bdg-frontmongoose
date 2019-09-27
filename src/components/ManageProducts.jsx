@@ -3,6 +3,27 @@ import axios from 'axios'
 
 export class ManageProducts extends Component {
 
+    state = {
+        products: []
+    }
+
+    componentDidMount(){
+        // Ambil data setelah render yang pertama
+        axios.get(
+            'http://localhost:2099/products'
+
+        ).then((res) => {
+            // res.data = [{}, {}, {}], bentuk response dari database
+            // disimpan di state
+            this.setState({ products: res.data })
+
+        })
+
+    }
+
+    renderProducts = () => {
+
+    }
 
     onAddClick = () => {
         // Membaca data dari textbox
@@ -41,6 +62,10 @@ export class ManageProducts extends Component {
                             <th>ACTION</th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        {this.renderProducts()}
+                    </tbody>
                 </table>
 
                 <h1 className="display-4 text-center">Input Product</h1>
@@ -77,3 +102,10 @@ export default ManageProducts
 // 2. Membaca product (GET)
 // 3. Update product (PATCH)
 // 4. Delete product (DELETE)
+
+
+// Latihan
+
+// 1. Render list saat pertama kali di buka halaman manage products
+
+// 2. Data yang baru masuk langsug muncul di list baru bawahnya
