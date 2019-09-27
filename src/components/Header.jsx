@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
+import {Link ,NavLink} from 'react-router-dom'
 import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
@@ -21,7 +20,7 @@ class Header extends Component {
     
     toggle = () => {
         this.setState({
-            isOpen: !this.state.isOpen
+            isOpen: !this.state.setState
         });
     }
 
@@ -29,33 +28,23 @@ class Header extends Component {
         return (
             <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <Link className = 'navbar-brand' to="/">reactstrap</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink className='nav-link' to="/manageproducts">Manage Product</NavLink>
               </NavItem>
+
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink className='nav-link' to="/register">Register</NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+
+              <NavItem>
+                <NavLink className='nav-link' to="/login">Login</NavLink>
+              </NavItem>
+              
             </Nav>
           </Collapse>
         </Navbar>
