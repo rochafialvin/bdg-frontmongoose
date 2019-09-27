@@ -5,6 +5,7 @@ import axios from 'axios'
 class Register extends Component {
 
 
+
     onSubmitClick = () => {
         // Ambil data dari text box
         let _username = this.username.value
