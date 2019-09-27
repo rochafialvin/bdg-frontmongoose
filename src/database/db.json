@@ -1,11 +1,12 @@
 {
-  "users": [
+  "users": [],
+  "products": [
     {
-      "username": "fake",
-      "email": "fake@gmail.com",
-      "password": "fakefakefake",
+      "name": "First Product",
+      "desc": "lorem ipsum dolor sit amet",
+      "price": "20000",
+      "picture": "https://www.jakartanotebook.com/images/products/99/63/19075/2/kaos-polos-katun-pria-o-neck-size-m-81402b-or-t-shirt-black-24.jpg",
       "id": 1
     }
-  ],
-  "products": []
+  ]
 }

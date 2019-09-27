@@ -1,6 +1,31 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export class ManageProducts extends Component {
+
+
+    onAddClick = () => {
+        // Membaca data dari textbox
+        let _name = this.name.value
+        let _desc = this.desc.value
+        let _price = this.price.value
+        let _picture = this.picture.value
+
+        // POST data tersebut ke database
+        axios.post(
+            'http://localhost:2099/products',
+            {
+                name: _name,
+                desc: _desc,
+                price: _price,
+                picture: _picture
+            }
+        ).then( (res) => {
+            alert('Data sudah berhasil di tambahkan')
+        } )
+
+    }
+
     render() {
         return (
             <div className='container'>
@@ -33,11 +58,11 @@ export class ManageProducts extends Component {
 
                     <tbody>
                         <tr>
-                            <td><input className='form-control' type='text'/></td>
-                            <td><input className='form-control' type='text'/></td>
-                            <td><input className='form-control' type='text'/></td>
-                            <td><input className='form-control' type='text'/></td>
-                            <td><button className='btn btn-outline-warning'>Add</button></td>
+                            <td><input ref={ (input) => {this.name = input} } className='form-control' type='text'/></td>
+                            <td><input ref={ (input) => {this.desc = input} } className='form-control' type='text'/></td>
+                            <td><input ref={ (input) => {this.price = input} } className='form-control' type='text'/></td>
+                            <td><input ref={ (input) => {this.picture = input} } className='form-control' type='text'/></td>
+                            <td><button onClick={this.onAddClick} className='btn btn-outline-warning'>Add</button></td>
                         </tr>
                     </tbody>
                 </table>
