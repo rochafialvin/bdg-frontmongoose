@@ -109,3 +109,7 @@ export default ManageProducts
 // 1. Render list saat pertama kali di buka halaman manage products
 
 // 2. Data yang baru masuk langsug muncul di list baru bawahnya
+
+// 3. Delete 
+
+// 4. Edit with modal
