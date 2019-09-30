@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "username": "rochafi",
+      "email": "rochafi@gmail.com",
+      "password": "qwe",
+      "id": 1
+    }
+  ],
   "products": [
     {
       "name": "First Product",

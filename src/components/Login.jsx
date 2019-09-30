@@ -21,12 +21,10 @@ class Login extends Component {
                 }
             }
         ).then( (res) => {
-
             // jika tidak ditemukan, arraynya kosong, length = 0
             if(res.data.length === 0){
                 console.log('Tidak dapat login')
             } else {
-
                 // Kirim id dan username ke reducer
                 this.props.sendData(
                     res.data[0].id,
@@ -34,7 +32,6 @@ class Login extends Component {
                 )
                 
             }
-
 
         } )
 

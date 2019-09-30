@@ -9,8 +9,7 @@ let initState = {
 let authReducer = (state = initState, action) => {
     switch (action.type) {
         case "LOGIN_SUCCESS":
-            // do something
-            break;
+            return {...state, id: action.payload.id, username: action.payload.username}
         
         case "LOGOUT_SUCCES":
             // do something
