@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 
+// nilai awal yang akan di simpan di label 'auth'
 let initState = {
     id: 0,
     username: ""
@@ -19,12 +20,15 @@ let authReducer = (state = initState, action) => {
     }
 }
 
+// Untuk menentukan tempat penyimpanan data dari setiap reducer
+// 'authReducer' akan memiliki tempat menyimpan data namanya adalah 'auth'
 let reducers = combineReducers(
     {
         auth: authReducer
     }
 )
 
+// di export untuk di import di src/index.js
 export default reducers
 
 // Action adalah object yang memiliki dua properties
