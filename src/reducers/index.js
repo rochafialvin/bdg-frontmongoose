@@ -19,11 +19,13 @@ let authReducer = (state = initState, action) => {
     }
 }
 
-combineReducers(
+let reducers = combineReducers(
     {
         auth: authReducer
     }
 )
+
+export default reducers
 
 // Action adalah object yang memiliki dua properties
     // type: untuk menentukan reducer mana yang akan mengolah
