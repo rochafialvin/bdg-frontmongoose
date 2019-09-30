@@ -8,6 +8,7 @@ import axios from 'axios'
 class Login extends Component {
 
     onSignInClick = () => {
+        // Data from user
         let _username = this.username.value
         let _password = this.password.value
 
@@ -21,10 +22,14 @@ class Login extends Component {
                 }
             }
         ).then( (res) => {
+            // red.data akan dalam bentuk array
             // jika tidak ditemukan, arraynya kosong, length = 0
             if(res.data.length === 0){
-                console.log('Tidak dapat login')
+                alert('Tidak dapat login')
+
             } else {
+                // res.data[0] = {id, username, email, password}
+
                 // Kirim id dan username ke reducer
                 this.props.sendData(
                     res.data[0].id,

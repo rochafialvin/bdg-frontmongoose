@@ -44,6 +44,10 @@ class Header extends Component {
               <NavItem>
                 <NavLink className='nav-link' to="/login">Login</NavLink>
               </NavItem>
+
+              <NavItem>
+                <button className="btn btn-outline-danger" >Logout</button>
+              </NavItem>
               
             </Nav>
           </Collapse>
