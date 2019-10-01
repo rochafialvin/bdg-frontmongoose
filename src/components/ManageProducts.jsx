@@ -10,6 +10,11 @@ export class ManageProducts extends Component {
     // akan running setelah render yang pertama kali, setelah itu tidak akan running
     componentDidMount(){
         // Ambil data setelah render yang pertama
+        this.getData()
+
+    }
+
+    getData = () => {
         axios.get(
             'http://localhost:2099/products'
 
@@ -19,7 +24,6 @@ export class ManageProducts extends Component {
             this.setState({ products: res.data })
 
         })
-
     }
 
     renderProducts = () => {
@@ -35,8 +39,7 @@ export class ManageProducts extends Component {
                     <td>{product.price}</td>
                     <td><img style={{width: 50}} src={product.picture}/></td>
                     <td>
-                        <button className="btn btn-outline-warning">Edit</button>
-                        <button className="btn btn-outline-danger">Delete</button>
+                        <button onClick={ () => {this.onDeleteClick(product.id)} } className="btn btn-outline-danger">Delete</button>
                     </td>
                 </tr>
             )
@@ -60,9 +63,16 @@ export class ManageProducts extends Component {
                 picture: _picture
             }
         ).then( (res) => {
-            alert('Data sudah berhasil di tambahkan')
+            this.getData()
         } )
 
+    }
+
+    onDeleteClick = (id) => {
+        axios.delete( 'http://localhost:2099/products/' + id)
+            .then(res => {
+                this.getData()
+            })
     }
 
     render() {
@@ -115,6 +125,12 @@ export class ManageProducts extends Component {
 }
 
 export default ManageProducts
+
+// Ketika sebuah function yang di panggil tidak membutuhkan parameter, maka penulisan sebagai berikut
+    // onClick ={this.namaFunction}
+
+// Jika function yang di panggil menerima parameter
+    //  onClick = { () => {this.namaFunction(data)} }
 
 // 1. Menambah product (POST)
 // 2. Membaca product (GET)

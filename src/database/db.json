@@ -9,24 +9,24 @@
   ],
   "products": [
     {
-      "name": "First Product",
-      "desc": "lorem ipsum dolor sit amet",
-      "price": "20000",
-      "picture": "https://www.jakartanotebook.com/images/products/99/63/19075/2/kaos-polos-katun-pria-o-neck-size-m-81402b-or-t-shirt-black-24.jpg",
+      "name": "Product One",
+      "desc": "SOmething",
+      "price": "29999",
+      "picture": "wqwqwqw",
       "id": 1
     },
     {
-      "name": "Second Product",
-      "desc": "lorem ipsum dolor sit amet",
-      "price": "30000",
-      "picture": "https://www.jakartanotebook.com/images/products/99/63/19075/2/kaos-polos-katun-pria-o-neck-size-m-81402b-or-t-shirt-black-24.jpg",
+      "name": "Product Two",
+      "desc": "lorem ipsum ",
+      "price": "9800",
+      "picture": "something",
       "id": 2
     },
     {
-      "name": "Third Product",
-      "desc": "lorem ipsum dolor sit amet",
-      "price": "40000",
-      "picture": "https://www.jakartanotebook.com/images/products/99/63/19075/2/kaos-polos-katun-pria-o-neck-size-m-81402b-or-t-shirt-black-24.jpg",
+      "name": "Product Two",
+      "desc": "lorem ipsum ",
+      "price": "9800",
+      "picture": "something",
       "id": 3
     }
   ]
