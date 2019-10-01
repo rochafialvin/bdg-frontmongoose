@@ -60,7 +60,7 @@ class Header extends Component {
               </NavItem>
               <UncontrolledDropdown>
                 <DropdownToggle nav inNavbar>
-                  Hello, username
+                  Hello, {this.props._username}
                 </DropdownToggle>
 
                 <DropdownMenu>

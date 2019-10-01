@@ -7,6 +7,7 @@ export class ManageProducts extends Component {
         products: []
     }
 
+    // akan running setelah render yang pertama kali, setelah itu tidak akan running
     componentDidMount(){
         // Ambil data setelah render yang pertama
         axios.get(
@@ -22,7 +23,24 @@ export class ManageProducts extends Component {
     }
 
     renderProducts = () => {
-
+        // this.state.products = [{id, name, price, desc, picture}, {}, {}]
+        // product = { id, name, desc, price, picture }
+        
+        return this.state.products.map( (product) => {
+            return(
+                <tr>
+                    <td>{product.id}</td>
+                    <td>{product.name}</td>
+                    <td>{product.desc}</td>
+                    <td>{product.price}</td>
+                    <td><img style={{width: 50}} src={product.picture}/></td>
+                    <td>
+                        <button className="btn btn-outline-warning">Edit</button>
+                        <button className="btn btn-outline-danger">Delete</button>
+                    </td>
+                </tr>
+            )
+        } )
     }
 
     onAddClick = () => {
