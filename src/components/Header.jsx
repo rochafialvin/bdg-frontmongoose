@@ -21,7 +21,7 @@ class Header extends Component {
         isOpen: false
     };
     
-    toggle = () => {
+   toggle = () => {
         this.setState({
             isOpen: !this.state.setState
         });
@@ -37,19 +37,19 @@ class Header extends Component {
             <Nav className="ml-auto" navbar>
 
               <NavItem>
-                <NavLink className='nav-link' to="/manageproducts">Manage Product</NavLink>
+                <NavLink className='nav-link' to="/">All Products</NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink className='nav-link' to="/register">Register</NavLink>
+                <NavLink className='nav-link' to="/register">
+                  <button className="btn btn-outline-success">Register</button>
+                </NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink className='nav-link' to="/login">Login</NavLink>
-              </NavItem>
-
-              <NavItem>
-                <button onClick={this.props.onLougoutUser} className="btn btn-outline-danger" >Logout</button>
+                <NavLink className='nav-link' to="/login">
+                  <button className="btn btn-outline-primary" >Login</button>
+                </NavLink>
               </NavItem>
               
             </Nav>
@@ -60,4 +60,15 @@ class Header extends Component {
     }
 }
 
-export default connect(null, {onLougoutUser} )(Header)
+const mapStateToProps = (state) => {
+  // this.props._username
+  // this.props._id
+  return {
+    _username : state.auth.username,
+    _id: state.auth.id
+  }
+}
+
+export default connect(mapStateToProps, {onLougoutUser} )(Header)
+// Parameter pertama dari function connect () digunakan untuk mengambil data di redux
+//  Parameter kedua digunakan untuk mengolah (Menambah, Menghapus, Mengubah) data di redux state
