@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link ,NavLink} from 'react-router-dom'
+import { connect } from 'react-redux'
 import {
     Collapse,
     Navbar,
@@ -10,6 +11,8 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem } from 'reactstrap';
+
+import { onLougoutUser } from '../actions/index'
 
 class Header extends Component {
 
@@ -46,7 +49,7 @@ class Header extends Component {
               </NavItem>
 
               <NavItem>
-                <button className="btn btn-outline-danger" >Logout</button>
+                <button onClick={this.props.onLougoutUser} className="btn btn-outline-danger" >Logout</button>
               </NavItem>
               
             </Nav>
@@ -57,4 +60,4 @@ class Header extends Component {
     }
 }
 
-export default Header
+export default connect(null, {onLougoutUser} )(Header)

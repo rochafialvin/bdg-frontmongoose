@@ -11,8 +11,8 @@ let authReducer = (state = initState, action) => {
         case "LOGIN_SUCCESS":
             return {...state, id: action.payload.id, username: action.payload.username}
         
-        case "LOGOUT_SUCCES":
-            // do something
+        case "LOGOUT_SUCCESS":
+            return {...state, ...initState}
     
         default:
             return state

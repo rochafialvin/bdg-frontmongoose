@@ -13,3 +13,9 @@ export const sendData = (_id, _username) => {
         }
     }
 }
+
+export const onLougoutUser = () => {
+    return {
+        type: "LOGOUT_SUCCESS"
+    }
+}
