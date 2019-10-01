@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link ,NavLink} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
+    Button,
     Collapse,
     Navbar,
     NavbarToggler,
@@ -27,35 +28,68 @@ class Header extends Component {
         });
     }
 
-    render() {
+    renderNavigation = () => {
+      // jika belum login / username = "" / false
+      if(!this.props._username){
+        // Belum login
         return (
-            <div>
-        <Navbar color="light" light expand="md">
-          <Link className = 'navbar-brand' to="/">reactstrap</Link>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink className='nav-link' to="/">All Products</NavLink>
+                </NavItem>
 
+                <NavItem>
+                  <NavLink className='nav-link' to="/register">
+                    <button className="btn btn-outline-success">Register</button>
+                  </NavLink>
+                </NavItem>
+
+                <NavItem>
+                  <NavLink className='nav-link' to="/login">
+                    <button className="btn btn-outline-primary" >Login</button>
+                  </NavLink>
+                </NavItem>
+              </Nav>
+        )
+      } else {
+        // Sudah login
+        return (
+            <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink className='nav-link' to="/">All Products</NavLink>
               </NavItem>
+              <UncontrolledDropdown>
+                <DropdownToggle nav inNavbar>
+                  Hello, username
+                </DropdownToggle>
 
-              <NavItem>
-                <NavLink className='nav-link' to="/register">
-                  <button className="btn btn-outline-success">Register</button>
-                </NavLink>
-              </NavItem>
+                <DropdownMenu>
+                  <NavLink to="/manageproducts">
+                    <DropdownItem>Manage Products</DropdownItem>
+                  </NavLink>
 
-              <NavItem>
-                <NavLink className='nav-link' to="/login">
-                  <button className="btn btn-outline-primary" >Login</button>
-                </NavLink>
-              </NavItem>
-              
+                  <Button className="dropdown-item">Logout</Button>
+                </DropdownMenu>
+
+              </UncontrolledDropdown>
             </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+        )
+      }
+    }
+
+    render() {
+        return (
+            <div>
+              <Navbar color="light" light expand="md">
+                <Link className = 'navbar-brand' to="/">reactstrap</Link>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                  
+                    {this.renderNavigation()}
+                
+                </Collapse>
+              </Navbar>
+          </div>
         )
     }
 }
@@ -72,3 +106,39 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {onLougoutUser} )(Header)
 // Parameter pertama dari function connect () digunakan untuk mengambil data di redux
 //  Parameter kedua digunakan untuk mengolah (Menambah, Menghapus, Mengubah) data di redux state
+
+// Belum login
+{/* <NavItem>
+                <NavLink className='nav-link' to="/">All Products</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink className='nav-link' to="/register">
+                  <button className="btn btn-outline-success">Register</button>
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink className='nav-link' to="/login">
+                  <button className="btn btn-outline-primary" >Login</button>
+                </NavLink>
+              </NavItem> */}
+
+// Setelah login
+{/* <NavItem>
+              <NavLink className='nav-link' to="/">All Products</NavLink>
+            </NavItem>
+            <UncontrolledDropdown>
+              <DropdownToggle nav inNavbar>
+                Hello, username
+              </DropdownToggle>
+
+              <DropdownMenu>
+                <NavLink to="/manageproducts">
+                  <DropdownItem>Manage Products</DropdownItem>
+                </NavLink>
+
+                <Button className="dropdown-item">Logout</Button>
+              </DropdownMenu>
+
+            </UncontrolledDropdown> */}
