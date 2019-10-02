@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import {Link ,NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
     Button,
     Collapse,
     Navbar,
     NavbarToggler,
+    NavLink,
     Nav,
     NavItem,
     UncontrolledDropdown,
@@ -35,17 +36,17 @@ class Header extends Component {
         return (
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink className='nav-link' to="/">All Products</NavLink>
+                  <NavLink tag={Link} className='nav-link' to="/">All Products</NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink className='nav-link' to="/register">
+                  <NavLink tag={Link} className='nav-link' to="/register">
                     <button className="btn btn-outline-success">Register</button>
                   </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink className='nav-link' to="/login">
+                  <NavLink tag={Link} className='nav-link' to="/login">
                     <button className="btn btn-outline-primary" >Login</button>
                   </NavLink>
                 </NavItem>
@@ -56,7 +57,7 @@ class Header extends Component {
         return (
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink className='nav-link' to="/">All Products</NavLink>
+                <NavLink tag={Link} className='nav-link' to="/">All Products</NavLink>
               </NavItem>
               <UncontrolledDropdown>
                 <DropdownToggle nav inNavbar>
@@ -64,11 +65,13 @@ class Header extends Component {
                 </DropdownToggle>
 
                 <DropdownMenu>
-                  <NavLink to="/manageproducts">
+                  <NavLink tag={Link}to="/manageproducts">
                     <DropdownItem>Manage Products</DropdownItem>
                   </NavLink>
-
-                  <Button className="dropdown-item">Logout</Button>
+                  <NavLink tag={Link} onClick={this.props.onLougoutUser}>
+                    <DropdownItem>Logout</DropdownItem>
+                  </NavLink>
+                  
                 </DropdownMenu>
 
               </UncontrolledDropdown>

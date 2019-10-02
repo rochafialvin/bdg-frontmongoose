@@ -18,6 +18,11 @@ export const sendData = (_id, _username) => {
 }
 
 export const onLougoutUser = () => {
+
+    // Hapus data di localStorage
+    localStorage.removeItem('userData')
+
+    // Hapus data di redux state
     return {
         type: "LOGOUT_SUCCESS"
     }

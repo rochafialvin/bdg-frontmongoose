@@ -5,6 +5,12 @@
       "email": "rochafi@gmail.com",
       "password": "qwe",
       "id": 1
+    },
+    {
+      "username": "rochafi2",
+      "email": "rochafi2@gmail.com",
+      "password": "qwe",
+      "id": 2
     }
   ],
   "products": [

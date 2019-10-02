@@ -8,19 +8,92 @@ class Register extends Component {
 
     onSubmitClick = () => {
         // Ambil data dari text box
-        let _username = this.username.value
-        let _email = this.email.value
+        let _username = this.username.value // rochafi
+        let _email = this.email.value // rochafi@gmail.com
         let _password = this.sandi.value
 
+        axios.get('http://localhost:2099/users')
+            .then((res) => {
+                /*
+                    res.data = [
+                        {username: alex , email: alex19@gmail.com},
+                        {username: rochafi, email: rochafi@gmail.com},
+                        {username: rexy , email: rexytofa@gmail.com}
+                    ]
+                */
+                // user = {id, username, email, password}
+                let takenUsername = res.data.filter((user) => {
+                    return user.username === _username // rochafi === rochafi
+                })
+                /*
+                    [
+                        {username: rochafi, email: rochafi@gmail.com}
+                    ]
+                */
+
+
+                if(takenUsername.length > 0){
+                    return console.log("Username has been taken")
+                }
+
+                let takenEmail = res.data.filter((user) => {
+                    return user.email === _email // rochafi === rochafi
+                })
+
+                if(takenEmail.length > 0){
+                    return console.log("Email has been taken")
+                }
+
+                axios.post(
+                    'http://localhost:2099/users',
+                    {
+                        username: _username,
+                        email: _email,
+                        password: _password
+                    }
+                ).then(() => {
+                    alert("Berhasil terdaftar")
+                })
+
+                
+            })
+
+        // axios.get('http://localhost:2099/users', {params:{ username:_username }})
+        //     .then((res) => {
+        //         if(res.data.length > 0){
+        //             alert("Username has been taken")
+        //         } else {
+        //             axios.get('http://localhost:2099/users', {params: {email: _email}})
+        //                 .then((res) => {
+        //                     if(res.data.length > 0){
+        //                         alert("Email has been taken")
+        //                     } else {
+                                // axios.post(
+                                //     'http://localhost:2099/users',
+                                //     {
+                                //         username: _username,
+                                //         email: _email,
+                                //         password: _password
+                                //     }
+                                // ).then(() => {
+                                //     alert("Berhasil terdaftar")
+        //                         })
+        //                     }
+        //                 })
+        //         }
+
+        //     })
+
+
         // POST data
-        axios.post(
-            'http://localhost:2099/users', 
-            {
-                username: _username,
-                email: _email,
-                password: _password
-            }
-        )
+        // axios.post(
+        //     'http://localhost:2099/users', 
+        //     {
+        //         username: _username,
+        //         email: _email,
+        //         password: _password
+        //     }
+        // )
 
     }
 
