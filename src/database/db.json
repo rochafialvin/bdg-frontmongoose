@@ -11,6 +11,12 @@
       "email": "rochafi2@gmail.com",
       "password": "qwe",
       "id": 2
+    },
+    {
+      "username": "",
+      "email": "",
+      "password": "",
+      "id": 3
     }
   ],
   "products": [
