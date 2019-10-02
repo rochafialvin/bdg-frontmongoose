@@ -12,33 +12,7 @@ class Login extends Component {
         let _username = this.username.value
         let _password = this.password.value
 
-        // GET data
-        axios.get(
-            'http://localhost:2099/users',
-            {
-                params: {
-                    username: _username,
-                    password: _password
-                }
-            }
-        ).then( (res) => {
-            // red.data akan dalam bentuk array
-            // jika tidak ditemukan, arraynya kosong, length = 0
-            if(res.data.length === 0){
-                alert('Tidak dapat login')
-
-            } else {
-                // res.data[0] = {id, username, email, password}
-
-                // Kirim id dan username ke reducer
-                this.props.sendData(
-                    res.data[0].id,
-                    res.data[0].username
-                )
-                
-            }
-
-        } )
+        this.props.sendData(_username, _password)
 
     }
 

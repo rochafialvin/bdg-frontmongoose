@@ -1,20 +1,51 @@
 // ACTION CREATORS
+import axios from 'axios'
 
-export const sendData = (_id, _username) => {
-    // _id = res.data[0].id
-    // _username = res.data[0].username
+export const sendData = (_username, _password) => {
     
-    // Menyimpan data user di local storage
-    localStorage.setItem('userData', JSON.stringify({id: _id, username: _username}))
+    return (dispatch) => {
+
+        
+        axios.get(
+            'http://localhost:2099/users',
+            {
+                params: {
+                    username: _username,
+                    password: _password
+                }
+            }
+        ).then( (res) => {
+            // red.data akan dalam bentuk array
+            // jika tidak ditemukan, arraynya kosong, length = 0
+            if(res.data.length === 0){
+                alert('Tidak dapat login')
     
-    // Action
-    return {
-        type: "LOGIN_SUCCESS",
-        payload: {
-            id: _id,
-            username: _username
-        }
+            } else {
+                // res.data[0] = {id, username, email, password}
+                let {id, username} = res.data[0]
+    
+                // Menyimpan data user di local storage
+                localStorage.setItem('userData', JSON.stringify({id: id, username: username}))
+                
+                // Kirim id dan username ke reducer
+                 dispatch(
+                    {
+                        type: "LOGIN_SUCCESS",
+                        payload: {
+                            id: id,
+                            username: username
+                        }
+                    }
+                 )
+                
+            }
+    
+        } )
+        
     }
+
+
+
 }
 
 export const onLougoutUser = () => {
