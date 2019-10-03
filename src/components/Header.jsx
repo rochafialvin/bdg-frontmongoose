@@ -109,39 +109,3 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {onLougoutUser} )(Header)
 // Parameter pertama dari function connect () digunakan untuk mengambil data di redux
 //  Parameter kedua digunakan untuk mengolah (Menambah, Menghapus, Mengubah) data di redux state
-
-// Belum login
-{/* <NavItem>
-                <NavLink className='nav-link' to="/">All Products</NavLink>
-              </NavItem>
-
-              <NavItem>
-                <NavLink className='nav-link' to="/register">
-                  <button className="btn btn-outline-success">Register</button>
-                </NavLink>
-              </NavItem>
-
-              <NavItem>
-                <NavLink className='nav-link' to="/login">
-                  <button className="btn btn-outline-primary" >Login</button>
-                </NavLink>
-              </NavItem> */}
-
-// Setelah login
-{/* <NavItem>
-              <NavLink className='nav-link' to="/">All Products</NavLink>
-            </NavItem>
-            <UncontrolledDropdown>
-              <DropdownToggle nav inNavbar>
-                Hello, username
-              </DropdownToggle>
-
-              <DropdownMenu>
-                <NavLink to="/manageproducts">
-                  <DropdownItem>Manage Products</DropdownItem>
-                </NavLink>
-
-                <Button className="dropdown-item">Logout</Button>
-              </DropdownMenu>
-
-            </UncontrolledDropdown> */}
