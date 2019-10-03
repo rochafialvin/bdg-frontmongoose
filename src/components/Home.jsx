@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import ProductItem from './ProductItem'
 
 class Home extends Component {
 
@@ -12,17 +13,7 @@ class Home extends Component {
         // product = {id, name, desc, price, pictures}
         return this.state.products.map((product)=>{
             return (
-                <div className="card">
-                    <img src="https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png" alt=""/>
-                    <div className="card-body">
-                        <h5 className="card-title">Hoodie Premium</h5>
-                        <p className="card-text">Lorem ipsum dolor sit amet,  spain italy london</p>
-                        <p className="card-text">Rp. 200000</p>
-                        <input type="text" className="form-control mb-2"/>
-                        <button className="btn btn-block btn-outline-dark">Detail</button>
-                        <button className="btn btn-block btn-outline-primary">Add to Cart</button>
-                    </div>
-                </div>
+                <ProductItem barang={product} key={product.id}/>
             )
         })
 

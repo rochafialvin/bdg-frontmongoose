@@ -7,6 +7,7 @@ import Register from './Register'
 import Login from './Login'
 import Header from './Header'
 import ManageProducts from './ManageProducts'
+import DetailProduct from './DetailProduct'
 
 import {keepLogin} from '../actions/index'
 
@@ -20,7 +21,6 @@ class App extends Component{
         if(userData){
             // Kirim ke redux
             this.props.keepLogin(userData)
-            
 
         }
 
@@ -35,6 +35,7 @@ class App extends Component{
                     <Route path="/register" component={Register} />
                     <Route path="/login" component={Login} />
                     <Route path="/manageproducts" component={ManageProducts} />
+                    <Route path="/detail/:purwadhika" component={DetailProduct}/>
                 </div>
             </BrowserRouter>
         )
@@ -42,3 +43,5 @@ class App extends Component{
 }
 
 export default connect(null, {keepLogin})(App)
+// titik dua pada path merupakan sebuah variable yang menyimpan data
+    // data pada variable dapat berubah - ubah

@@ -37,7 +37,7 @@ export class ManageProducts extends Component {
                     <td>{product.name}</td>
                     <td>{product.desc}</td>
                     <td>{product.price}</td>
-                    <td><img style={{width: 50}} src={product.picture}/></td>
+                    <td><img style={{width: 50}} src={product.picture} alt="mantappu"/></td>
                     <td>
                         <button onClick={ () => {this.onDeleteClick(product.id)} } className="btn btn-outline-danger">Delete</button>
                     </td>

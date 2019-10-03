@@ -12,21 +12,21 @@
       "name": "Product One",
       "desc": "SOmething",
       "price": "29999",
-      "picture": "wqwqwqw",
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
       "id": 1
     },
     {
       "name": "Product Two",
       "desc": "lorem ipsum ",
       "price": "9800",
-      "picture": "something",
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
       "id": 2
     },
     {
       "name": "Product Two",
       "desc": "lorem ipsum ",
       "price": "9800",
-      "picture": "something",
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
       "id": 3
     }
   ]

@@ -1,0 +1,23 @@
+1. Buat ukuran product di home itu responsive
+
+2. Selesaikan komponen detail product, tampilannya bebas
+
+3. Buat proteksi di setiap komponen dengan aturan seperti berikut
+
+        BELUM LOGIN
+            Dapat mengakses :
+                - LOGIN
+                - REGISTER
+                - HOME
+
+            Tidak dapat mengakses : 
+                - MANAGE PRODUCTS
+
+        SUDAH LOGIN
+            Dapat mengakses :
+                - HOME
+                - MANAGE PRODUCTS
+
+            Tidak dapat mengakses:
+                - LOGIN
+                - REGISTER
