@@ -84,7 +84,7 @@ class Header extends Component {
         return (
             <div>
               <Navbar color="light" light expand="md">
-                <Link className = 'navbar-brand' to="/">reactstrap</Link>
+                <Link className = 'navbar-brand' to="/login">reactstrap</Link>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                   

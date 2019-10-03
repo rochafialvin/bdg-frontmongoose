@@ -1,0 +1,17 @@
+BELUM LOGIN
+    Dapat mengakses :
+        - LOGIN
+        - REGISTER
+        - HOME
+
+    Tidak dapat mengakses : 
+        - MANAGE PRODUCTS
+
+SUDAH LOGIN
+    Dapat mengakses :
+        - HOME
+        - MANAGE PRODUCTS
+
+    Tidak dapat mengakses:
+        - LOGIN
+        - REGISTER
