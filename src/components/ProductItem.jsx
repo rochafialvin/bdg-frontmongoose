@@ -7,8 +7,8 @@ export class ProductItem extends Component {
         let {id, name, desc, price, picture} = this.props.barang
 
         return (
-            <div className="card">
-                <img src={picture} alt={name}/>
+            <div className="card col-12 col-lg-3 col-xl-3 mx-auto mx-xl-3 my-3">
+                <img src={picture} alt={name} className="card-img-top"/>
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">{desc}</p>

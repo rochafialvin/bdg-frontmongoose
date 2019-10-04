@@ -34,7 +34,7 @@ class Home extends Component {
             <div className="container-fluid">
                 <div className="row">
                     {/* Search Bar */}
-                    <div className="col-10 col-lg-3 col-xl-2">
+                    <div className="col-12 col-lg-3 col-xl-2">
                         <div className="card">
                             <div className="card-body">
                                 <h1 className="border-bottom border-secondary card-title">Search</h1>
@@ -53,7 +53,7 @@ class Home extends Component {
                     </div>
                     
                     {/* List Products */}
-                    <div className="col-8">
+                    <div className="row col-12 col-lg-9 col-xl-10">
                         {this.renderProducts()}
                     </div>
                 </div>
