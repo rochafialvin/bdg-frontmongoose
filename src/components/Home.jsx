@@ -5,13 +5,32 @@ import ProductItem from './ProductItem'
 class Home extends Component {
 
     state = {
-        products: []
+        products: [], // 1
+        searchProducts: []
+    }
+
+    onSearch = () => {
+        // input dari user akan di ubah menjadi huruf kecil
+        let name = this.name.value.toLowerCase()
+
+        // Filtering
+        // product = {id, name, desc, price, picture}
+        let hasilFilter = this.state.products.filter((product) => {
+            let productLowercase = product.name.toLowerCase()
+
+            // product on.includes(one)
+            return productLowercase.includes(name)
+
+        })
+
+        this.setState({ searchProducts: hasilFilter })
+
     }
 
     renderProducts = () => {
         // state.products = [{}, {}, {}]
         // product = {id, name, desc, price, pictures}
-        return this.state.products.map((product)=>{
+        return this.state.searchProducts.map((product)=>{
             return (
                 <ProductItem barang={product} key={product.id}/>
             )
@@ -24,7 +43,7 @@ class Home extends Component {
         // GET data
         axios.get('http://localhost:2099/products')
             .then((res) => {
-                this.setState({ products: res.data })
+                this.setState({ products: res.data, searchProducts: res.data })
 
             })
     }
@@ -40,13 +59,13 @@ class Home extends Component {
                                 <h1 className="border-bottom border-secondary card-title">Search</h1>
                                 <form className="form-group mb-3">
                                     <h4>Name</h4>
-                                    <input type="text" className="form-control" />
+                                    <input ref={(input) => {this.name = input}} type="text" className="form-control" />
 
                                     <h4>Price</h4>
-                                    <input placeholder="Minimum" type="text" className="form-control mb-2" />
-                                    <input placeholder="Maximum" type="text" className="form-control" />
+                                    <input ref={(input) => {this.min = input}} placeholder="Minimum" type="text" className="form-control mb-2" />
+                                    <input ref={(input) => {this.max = input}} placeholder="Maximum" type="text" className="form-control" />
                                 </form>
-                                <button className="btn btn-block btn-outline-primary">Search</button>
+                                <button onClick={this.onSearch} className="btn btn-block btn-outline-primary">Search</button>
                                 <button className="btn btn-block btn-outline-warning">Show All</button>
                             </div>
                         </div>
