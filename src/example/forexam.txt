@@ -1,0 +1,3 @@
+1. .map()
+2. conditional rendering
+3. axios.get(), axios.delete(), axios.patch()

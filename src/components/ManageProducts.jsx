@@ -50,7 +50,7 @@ export class ManageProducts extends Component {
         // Membaca data dari textbox
         let _name = this.name.value
         let _desc = this.desc.value
-        let _price = this.price.value
+        let _price = parseInt(this.price.value)
         let _picture = this.picture.value
 
         // POST data tersebut ke database

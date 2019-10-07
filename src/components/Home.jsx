@@ -11,16 +11,62 @@ class Home extends Component {
 
     onSearch = () => {
         // input dari user akan di ubah menjadi huruf kecil
-        let name = this.name.value.toLowerCase()
+        let name = this.name.value.toLowerCase() // PrOdUct oNe => product one
+        let min = parseInt(this.min.value) // "23" => 23
+        let max = parseInt(this.max.value) // jika di tidak di isi akan menyimpan NaN
 
-        // Filtering
-        // product = {id, name, desc, price, picture}
-        let hasilFilter = this.state.products.filter((product) => {
-            let productLowercase = product.name.toLowerCase()
+        let hasilFilter = this.state.products.filter((item) => {
 
-            // product on.includes(one)
-            return productLowercase.includes(name)
+            // name = six
+            // item.name.toLowercase() => product one
+            // product one.includes(six)
 
+            // Search by Name
+            // Ketika min dan max berupa NaN
+            if(isNaN(min) && isNaN(max)){
+                // Product One => product one
+                return item.name.toLowerCase().includes(name)
+
+            } else if(isNaN(max)){ // Search by Min
+
+                // name: ""
+                // min : 90000
+                // max : NaN
+
+                // price <= max       false
+
+                return (
+                    item.price >= min
+                    // 998 >= 90000
+                )
+
+                // [ {product four}, {product five} ]
+    
+            } else if(isNaN(min)){ // Search by Max
+
+                // name : ""
+                // min : NaN
+                // max : 90000
+
+                return (
+                    item.price <= max
+                )
+    
+            }  else { // Search by Name, Min, Max
+
+                // name: f
+                // min: 90.000
+                // max: 150.000
+
+                // final : ( true && true ) && false ==> (true) && false==> false
+                return (
+                    item.name.toLowerCase().includes(name) && // true
+                    item.price >= min && // 185.000 >= 90.000 // true
+                    item.price <= max // 185.000 <= 150.000 //  false
+                )
+            }
+
+            // [ {product four} ]
         })
 
         this.setState({ searchProducts: hasilFilter })
