@@ -13,6 +13,10 @@ import {keepLogin} from '../actions/index'
 
 class App extends Component{
 
+    state = {
+        check: false
+    }
+
     componentDidMount() {
         // backup user dari localStorage ke redux state
         // akan mengubah object string menjadi object sebenarnya
@@ -24,21 +28,27 @@ class App extends Component{
 
         }
 
+        this.setState({check: true})
+
     }
 
     render() {
-        return (
-            <BrowserRouter>
-                <div>
-                    <Header/>
-                    <Route path="/" exact  component={Home} />
-                    <Route path="/register" component={Register} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/manageproducts" component={ManageProducts} />
-                    <Route path="/detail/:purwadhika" component={DetailProduct}/>
-                </div>
-            </BrowserRouter>
-        )
+        if(this.state.check){
+            return (
+                <BrowserRouter>
+                    <div>
+                        <Header/>
+                        <Route path="/" exact  component={Home} />
+                        <Route path="/register" component={Register} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/manageproducts" component={ManageProducts} />
+                        <Route path="/detail/:purwadhika" component={DetailProduct}/>
+                    </div>
+                </BrowserRouter>
+            )
+        }
+
+        return <h1>LOADING</h1>
     }
 }
 
