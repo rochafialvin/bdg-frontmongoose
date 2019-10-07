@@ -27,7 +27,7 @@ class Home extends Component {
                 // Product One => product one
                 return item.name.toLowerCase().includes(name)
 
-            } else if(isNaN(max)){ // Search by Min
+            } else if(isNaN(max)){ // Search by Min and Name // Min
 
                 // name: ""
                 // min : 90000
@@ -36,19 +36,21 @@ class Home extends Component {
                 // price <= max       false
 
                 return (
+                    item.name.toLowerCase().includes(name) &&
                     item.price >= min
                     // 998 >= 90000
                 )
 
                 // [ {product four}, {product five} ]
     
-            } else if(isNaN(min)){ // Search by Max
+            } else if(isNaN(min)){ // Search by Max and Name
 
                 // name : ""
                 // min : NaN
                 // max : 90000
 
                 return (
+                    item.name.toLowerCase().includes(name) &&
                     item.price <= max
                 )
     
