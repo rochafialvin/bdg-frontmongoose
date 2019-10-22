@@ -19,11 +19,11 @@ class App extends Component{
     componentDidMount() {
         // backup user dari localStorage ke redux state
         // akan mengubah object string menjadi object sebenarnya
-        let userData = JSON.parse(localStorage.getItem('userData'))
+        let user = JSON.parse(localStorage.getItem('user'))
 
-        if(userData){
+        if(user){
             // Kirim ke redux
-            this.props.keepLogin(userData)
+            this.props.keepLogin(user)
 
         }
 

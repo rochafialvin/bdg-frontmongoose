@@ -14,7 +14,7 @@ export const sendData = (username, _id) => {
 export const onLougoutUser = () => {
 
     // Hapus data di localStorage
-    localStorage.removeItem('userData')
+    localStorage.removeItem('user')
 
     // Hapus data di redux state
     return {
@@ -22,12 +22,12 @@ export const onLougoutUser = () => {
     }
 }
 
-export const keepLogin = (userData) => {
+export const keepLogin = (user) => {
     return {
         type: "LOGIN_SUCCESS",
         payload: {
-            id: userData.id,
-            username: userData.username
+            _id: user._id,
+            username: user.username
         }
     }
 }
