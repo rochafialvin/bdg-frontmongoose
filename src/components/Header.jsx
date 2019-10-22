@@ -40,13 +40,13 @@ class Header extends Component {
 
                 <NavItem>
                   <NavLink tag={Link} className='nav-link' to="/register">
-                    <button className="btn btn-outline-success">Register</button>
+                    Register
                   </NavLink>
                 </NavItem>
 
                 <NavItem>
                   <NavLink tag={Link} className='nav-link' to="/login">
-                    <button className="btn btn-outline-primary" >Login</button>
+                    Login
                   </NavLink>
                 </NavItem>
               </Nav>
