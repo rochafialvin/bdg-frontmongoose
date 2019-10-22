@@ -2,14 +2,14 @@ import { combineReducers } from 'redux'
 
 // nilai awal yang akan di simpan di label 'auth'
 let initState = {
-    id: 0,
+    _id: 0,
     username: ""
 }
 
 let authReducer = (state = initState, action) => {
     switch (action.type) {
         case "LOGIN_SUCCESS":
-            return {...state, id: action.payload.id, username: action.payload.username}
+            return {...state, _id: action.payload._id, username: action.payload.username}
         
         case "LOGOUT_SUCCESS":
             return {...state, ...initState}
