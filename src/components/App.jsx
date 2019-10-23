@@ -8,6 +8,7 @@ import Login from './Login'
 import Header from './Header'
 import Home from './Home'
 import Profile from './Profile'
+import EditProfile from './EditProfile'
 
 
 import {keepLogin} from '../actions/index'
@@ -43,6 +44,7 @@ class App extends Component{
                         <Route path="/register" component={Register} />
                         <Route path="/login" component={Login} />
                         <Route path="/profile" component={Profile} />
+                        <Route path="/editprofile" component={EditProfile} />
                     </div>
                 </BrowserRouter>
             )

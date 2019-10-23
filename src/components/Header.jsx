@@ -67,8 +67,12 @@ class Header extends Component {
                   <NavLink tag={Link} to='/profile'>
                     <DropdownItem>Profile</DropdownItem>
                   </NavLink>
+                  <NavLink tag={Link} to='/editprofile'>
+                    <DropdownItem>Edit Profile</DropdownItem>
+                  </NavLink>
 
-                  <NavLink tag={Link} onClick={this.props.onLougoutUser}>
+                  <DropdownItem divider/>
+                  <NavLink onClick={this.props.onLougoutUser}>
                     <DropdownItem>Logout</DropdownItem>
                   </NavLink>
                   
