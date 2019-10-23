@@ -28,8 +28,10 @@ class Register extends Component {
 
             alert('Registrasi berhasil')
 
+
         }).catch(err => {
             console.log({err})
+            
         })
 
     }

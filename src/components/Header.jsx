@@ -64,6 +64,10 @@ class Header extends Component {
                 </DropdownToggle>
 
                 <DropdownMenu>
+                  <NavLink tag={Link} to='/profile'>
+                    <DropdownItem>Profile</DropdownItem>
+                  </NavLink>
+
                   <NavLink tag={Link} onClick={this.props.onLougoutUser}>
                     <DropdownItem>Logout</DropdownItem>
                   </NavLink>

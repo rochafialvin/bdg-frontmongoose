@@ -4,6 +4,25 @@ import axios from '../config/axios'
 
 export class Home extends Component {
 
+    state = {
+        tasks : []
+    }
+
+    componentDidMount() {
+        this.getTasks()
+    }
+
+    getTasks = () => {
+        axios.get(`/tasks/${this.props._id}`)
+            .then(res => {
+                this.setState({tasks: res.data})
+
+            }).catch(err => {  
+                console.log(err)
+
+            })
+    }
+
     addTask = () => {
         // Get data
         let userid = this.props._id
@@ -16,11 +35,60 @@ export class Home extends Component {
                 description
             }
         ).then(res => {
-            console.log({res})
+            this.task.value = ""
+            this.getTasks()
 
         }).catch(err => {
             console.log({err})
             
+        })
+    }
+
+    doneTask = (_id) => {
+        axios.patch(`/tasks/${_id}`, {completed: true})
+            .then(res => {
+                this.getTasks()
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
+    cancelTask = (_id) => {
+        axios.patch(`/tasks/${_id}`, {completed: false})
+            .then(res => {
+                this.getTasks()
+            }).catch(err => {
+                console.log(err)
+            })
+    }
+
+    deleteTask = (_id) => {
+            axios.delete(`/tasks/${_id}`)
+                .then(res => {
+                    this.getTasks()
+                }).catch(err => {
+                    console.log(err)
+                })
+
+    }
+
+    renderList = () => {
+        return this.state.tasks.map(task => {
+            if(task.completed){
+                return (
+                    <li onDoubleClick={() => { this.deleteTask(task._id) }} className="list-group-item d-flex justify-content-between">
+                        <del>{task.description}</del>
+                        <button onClick={() => {this.cancelTask(task._id)}} className="btn btn-outline-danger">Cancel</button>
+                    </li>
+                )
+            }
+
+            return (
+                <li onDoubleClick={() => { this.deleteTask(task._id) }} className="list-group-item d-flex justify-content-between">
+                    <span>{task.description}</span>
+                    <button onClick={() => {this.doneTask(task._id)}} className="btn btn-outline-primary">Done</button>
+                </li>
+            )
         })
     }
 
@@ -29,7 +97,7 @@ export class Home extends Component {
             <div className="container">
                 <h1 className="text-center display-4">List Tasks</h1>
                 <ul className="list-group list-group-flush mb-5">
-                    {/* {this.renderlist()} */}
+                    {this.renderList()}
                 </ul>
 
                 <form className="form-group mb-3">
