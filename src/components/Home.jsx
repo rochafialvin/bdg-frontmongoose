@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import axios from '../config/axios'
+import {Redirect} from 'react-router-dom'
 
 export class Home extends Component {
 
@@ -15,7 +16,7 @@ export class Home extends Component {
     getTasks = () => {
         axios.get(`/tasks/${this.props._id}`)
             .then(res => {
-                this.setState({tasks: res.data})
+                this.setState({ tasks : res.data })
 
             }).catch(err => {  
                 console.log(err)
@@ -93,22 +94,26 @@ export class Home extends Component {
     }
 
     render() {
-        return (
-            <div className="container">
-                <h1 className="text-center display-4">List Tasks</h1>
-                <ul className="list-group list-group-flush mb-5">
-                    {this.renderList()}
-                </ul>
+        if(this.props._id){
+            return (
+                <div className="container">
+                    <h1 className="text-center display-4">List Tasks</h1>
+                    <ul className="list-group list-group-flush mb-5">
+                        {this.renderList()}
+                    </ul>
+    
+                    <form className="form-group mb-3">
+                        <input ref={(input) => this.task = input} type="text" className="form-control" placeholder="You next move ..."/>
+                    </form>
+                    <button 
+                        className="btn btn-block btn-outline-danger"
+                        onClick={this.addTask}
+                    >Up!</button>
+                </div>
+            )
+        }
 
-                <form className="form-group mb-3">
-                    <input ref={(input) => this.task = input} type="text" className="form-control" placeholder="You next move ..."/>
-                </form>
-                <button 
-                    className="btn btn-block btn-outline-danger"
-                    onClick={this.addTask}
-                >Up!</button>
-            </div>
-        )
+        return <Redirect to='/login'/>
     }
 }
 
